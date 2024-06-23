@@ -1,6 +1,8 @@
-package ban.inspector.utils;
+package ban.inspector.utils.wordutils;
 
 import ban.inspector.domain.Word;
+import ban.inspector.utils.WordUtilImpl;
+import ban.inspector.utils.wordutils.setting.WordUtilSettings;
 
 import java.util.List;
 
@@ -24,10 +26,9 @@ public abstract class ExceptWordUtil extends WordUtilImpl implements WordUtilSet
     }
 
     private void remove(int startIndex, int endIndex, List<Word> beforeWords) {
-        for (int i = 0; i < beforeWords.size(); i++) {
-            Word word = beforeWords.get(i);
+        for (Word word : beforeWords) {
             if (word.includeRange(startIndex, endIndex)) {
-                beforeWords.remove(i);
+                beforeWords.remove(word);
                 return;
             }
             if (word.getStartIndex() >= endIndex) return;

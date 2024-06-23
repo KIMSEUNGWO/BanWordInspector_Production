@@ -1,41 +1,34 @@
 package ban.inspector.inspector;
 
-import ban.inspector.config.innerConfig.InnerInspectConfig;
+import ban.inspector.factory.BanWordFactory;
+import ban.inspector.factory.ExceptWordFactory;
+import ban.inspector.config.InnerInspectConfig;
 import ban.inspector.domain.Word;
-import ban.inspector.utils.BanWordUtil;
-import ban.inspector.utils.ExceptWordUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 @Component
 public class InspectorImpl implements Inspector {
 
 
-    private final List<BanWordUtil> banWordUtils;
-    private final List<ExceptWordUtil> exceptWordUtils;
+    private final BanWordFactory banWordFactory;
+    private final ExceptWordFactory exceptWordFactory;
 
     @Autowired
     public InspectorImpl(InnerInspectConfig config) {
-        this.banWordUtils = config.getBanWordFactory().getUtils();
-        this.exceptWordUtils = config.getExceptFactory().getUtils();
+        banWordFactory = config.getBanWordFactory();
+        exceptWordFactory = config.getExceptWordFactory();
     }
 
     private List<Word> executeBanWord(String word) {
-        Set<Word> set = new TreeSet<>(Word::compareTo);
-        banWordUtils.forEach(util -> set.addAll(util.filter(word)));
-        return new ArrayList<>(set);
+        return banWordFactory.filter(word);
     }
 
     private List<Word> executeExceptWord(String word, List<Word> beforeWords) {
-        exceptWordUtils.forEach(util -> util.filter(word, beforeWords));
-        return beforeWords;
+        return exceptWordFactory.filter(word, beforeWords);
     }
-
 
     @Override
     public List<Word> inspect(String word) {

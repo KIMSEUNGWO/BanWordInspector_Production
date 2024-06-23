@@ -1,12 +1,14 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.3.0'
+	id 'org.springframework.boot' version '3.3.0' apply false
 	id 'io.spring.dependency-management' version '1.1.5'
 	id 'me.champeau.jmh' version '0.6.8'
 }
 
 group = 'ban'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	toolchain {
@@ -24,16 +26,16 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+	imports {
+		mavenBom SpringBootPlugin.BOM_COORDINATES
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
-}
-
-jmh {
-	warmupIterations = 1
-	warmupForks = 0
-	synchronizeIterations = false
 }
