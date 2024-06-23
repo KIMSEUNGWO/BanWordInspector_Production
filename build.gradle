@@ -40,7 +40,7 @@ publishing {
 	publications {
 		maven(MavenPublication) {
 			groupId = 'ban.inspector'
-			artifactId = 'banword-inspector'
+			artifactId = 'inspector'
 			version = '0.0.1'
 
 			from components.java
