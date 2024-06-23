@@ -7,7 +7,6 @@ plugins {
 	id 'maven-publish'
 }
 
-
 group = 'ban'
 version = '0.0.1'
 
