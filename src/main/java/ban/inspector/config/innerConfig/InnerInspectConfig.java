@@ -29,6 +29,7 @@ public class InnerInspectConfig {
         this.inspectConfig = inspectConfig;
     }
 
+
     @PostConstruct
     public void onApplicationReady() {
         if (inspectConfig != null) {
