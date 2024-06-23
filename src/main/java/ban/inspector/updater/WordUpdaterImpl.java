@@ -44,5 +44,21 @@ public class WordUpdaterImpl implements WordUpdater {
         }
     }
 
-    public record UpdateInfo(String version, List<String> words) { }
+    public static class UpdateInfo {
+        private final String version;
+        private final List<String> words;
+
+        public UpdateInfo(String version, List<String> words) {
+            this.version = version;
+            this.words = words;
+        }
+
+        public String getVersion() {
+            return version;
+        }
+
+        public List<String> getWords() {
+            return words;
+        }
+    }
 }
