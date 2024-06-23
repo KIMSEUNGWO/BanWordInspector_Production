@@ -2,7 +2,7 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.3.0' apply false
+	id 'org.springframework.boot' version '3.3.0'
 	id 'io.spring.dependency-management' version '1.1.5'
 }
 
@@ -31,16 +31,6 @@ dependencyManagement {
 	}
 }
 
-dependencyResolutionManagement {
-	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-	repositories {
-		mavenCentral()
-		maven { url 'https://jitpack.io' }
-	}
-}
-
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'com.github.KIMSEUNGWO:BanWordInspector_Production:-SNAPSHOT'
-
 }
