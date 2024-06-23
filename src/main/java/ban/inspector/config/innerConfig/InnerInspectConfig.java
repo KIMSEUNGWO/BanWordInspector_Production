@@ -30,7 +30,7 @@ public class InnerInspectConfig {
     }
 
     @PostConstruct
-    private void onApplicationReady() {
+    public void onApplicationReady() {
         if (inspectConfig != null) {
             inspectConfig.addBanWords(banWordFactory);
             inspectConfig.addExceptWords(exceptWordFactory);
