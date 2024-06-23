@@ -31,6 +31,16 @@ dependencyManagement {
 	}
 }
 
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+	repositories {
+		mavenCentral()
+		maven { url 'https://jitpack.io' }
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.github.KIMSEUNGWO:BanWordInspector_Production:-SNAPSHOT'
+
 }
