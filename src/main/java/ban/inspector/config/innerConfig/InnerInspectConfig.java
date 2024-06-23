@@ -1,11 +1,13 @@
-package ban.inspector.config;
+package ban.inspector.config.innerConfig;
 
+import ban.inspector.config.InspectConfig;
 import ban.inspector.factory.BanWordFactory;
 import ban.inspector.factory.ExceptWordFactory;
 import ban.inspector.updater.WordUpdater;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 
 @Component
 public class InnerInspectConfig {

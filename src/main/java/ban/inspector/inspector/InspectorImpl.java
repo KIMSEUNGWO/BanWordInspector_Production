@@ -2,7 +2,7 @@ package ban.inspector.inspector;
 
 import ban.inspector.factory.BanWordFactory;
 import ban.inspector.factory.ExceptWordFactory;
-import ban.inspector.config.InnerInspectConfig;
+import ban.inspector.config.innerConfig.InnerInspectConfig;
 import ban.inspector.domain.Word;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
