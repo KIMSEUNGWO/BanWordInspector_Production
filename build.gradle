@@ -11,7 +11,7 @@ version = '0.0.1'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
+		languageVersion = JavaLanguageVersion.of(11)
 	}
 }
 
@@ -23,12 +23,6 @@ configurations {
 
 repositories {
 	mavenCentral()
-}
-
-dependencyManagement {
-	imports {
-		mavenBom SpringBootPlugin.BOM_COORDINATES
-	}
 }
 
 dependencies {
