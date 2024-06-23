@@ -9,7 +9,7 @@ plugins {
 }
 
 group = 'ban'
-version = '0.0.1'
+version = '0.0.2'
 
 java {
 	toolchain {
@@ -43,7 +43,7 @@ publishing {
 		maven(MavenPublication) {
 			groupId = 'ban.inspector'
 			artifactId = 'inspector'
-			version = '0.0.1'
+			version = '0.0.2'
 
 			from components.java
 		}
